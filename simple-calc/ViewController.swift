@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var numbers = [Double]()
     var total = Double()
     var findAvg = false
+    var findFact = false
     
     
     var currentOperation = String()
@@ -47,13 +48,18 @@ class ViewController: UIViewController {
         numbers = [Double]()
         total = 0
         findAvg = false
+        findFact = false
     }
     
     @IBAction func btnOperation(sender: UIButton) {
         numbers.append(Double(currentNumber))
         print(numbers)
+        
+        if sender.titleLabel!.text! == "Fact" {
+            findFact = true
+        }
     
-        switch currentOperation{
+        switch currentOperation {
             case "=":
                 result = currentNumber
             case "/":
@@ -72,6 +78,8 @@ class ViewController: UIViewController {
                 result = total
             case "Avg":
                 findAvg = true
+            case "Fact":
+                findFact = true
             default:
                 print("error")
         }
@@ -83,7 +91,18 @@ class ViewController: UIViewController {
                 total = total + num
             }
             result = total / Double(numbers.count)
+        } else if findFact == true {
+            var factorialIndex = currentNumber
+            print(factorialIndex)
+            total = factorialIndex * (factorialIndex - 1)
+            factorialIndex = factorialIndex - 2
+            while factorialIndex > 0 {
+                total = total * factorialIndex
+                factorialIndex = factorialIndex - 1
+            }
+            result = total
         }
+        
         currentNumber = 0
         lblResult.text = ("\(result)")
         
