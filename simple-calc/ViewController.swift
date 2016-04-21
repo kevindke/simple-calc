@@ -12,11 +12,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var lblResult: UITextField!
     
-    var result = Float()
-    var currentNumber = Float()
+    var result = Double()
+    var currentNumber = Double()
     var numbers = [Double]()
     var total = Double()
-    var findAvg = true
+    var findAvg = false
     
     
     var currentOperation = String()
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         
         currentOperation = "="
         lblResult.text = ("\(result)")
+        total = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnNumberInput(sender: UIButton) {
-        currentNumber = currentNumber * 10 + Float(Double(sender.titleLabel!.text!)!)
+        currentNumber = currentNumber * 10 + Double(sender.titleLabel!.text!)!
         lblResult.text = ("\(currentNumber)")
     }
 
@@ -45,39 +46,43 @@ class ViewController: UIViewController {
         lblResult.text = ("\(result)")
         numbers = [Double]()
         total = 0
+        findAvg = false
     }
     
     @IBAction func btnOperation(sender: UIButton) {
         numbers.append(Double(currentNumber))
         print(numbers)
     
-        switch (currentOperation, findAvg) {
-            case ("=", true):
-                for index in 0 ..< numbers.count {
-                    let num = Double.init(numbers[index])
-                    total = total + num
-                }
-            result = Float(total) / Float(Double(numbers.count))
-            case ("=", false):
+        switch currentOperation{
+            case "=":
                 result = currentNumber
-            case ("/", false):
+            case "/":
                 result = result / currentNumber
-            case ("*", false):
+            case "*":
                 result = result * currentNumber
-            case ("-", false):
+            case "-":
                 result = result - currentNumber
-            case ("+", false):
+            case "+":
                 result = result + currentNumber
-            case ("%", false):
+            case "%":
                 result = result % currentNumber
-            case ("Count", false):
+            case "Count":
                 print(numbers)
                 total = Double(numbers.count)
-                result = Float(total)
-            case ("Avg", false || true):
+                result = total
+            case "Avg":
                 findAvg = true
             default:
                 print("error")
+        }
+        
+        if findAvg == true {
+            total = 0
+            for index in 0 ..< numbers.count {
+                let num = numbers[index]
+                total = total + num
+            }
+            result = total / Double(numbers.count)
         }
         currentNumber = 0
         lblResult.text = ("\(result)")
