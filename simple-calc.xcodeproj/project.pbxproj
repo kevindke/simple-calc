@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE5B3F1C1CD00C5C005D1557 /* ViewTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B3F1B1CD00C5C005D1557 /* ViewTwoController.swift */; };
 		AEEB64D51CC8D2D800DD94FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEB64D41CC8D2D800DD94FE /* AppDelegate.swift */; };
 		AEEB64D71CC8D2D800DD94FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEB64D61CC8D2D800DD94FE /* ViewController.swift */; };
 		AEEB64DA1CC8D2D800DD94FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEEB64D81CC8D2D800DD94FE /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE5B3F1B1CD00C5C005D1557 /* ViewTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTwoController.swift; path = ../ViewTwoController.swift; sourceTree = "<group>"; };
 		AEEB64D11CC8D2D800DD94FE /* simple-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEB64D41CC8D2D800DD94FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEEB64D61CC8D2D800DD94FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				AEEB64D41CC8D2D800DD94FE /* AppDelegate.swift */,
 				AEEB64D61CC8D2D800DD94FE /* ViewController.swift */,
+				AE5B3F1B1CD00C5C005D1557 /* ViewTwoController.swift */,
 				AEEB64D81CC8D2D800DD94FE /* Main.storyboard */,
 				AEEB64DB1CC8D2D800DD94FE /* Assets.xcassets */,
 				AEEB64DD1CC8D2D800DD94FE /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5B3F1C1CD00C5C005D1557 /* ViewTwoController.swift in Sources */,
 				AEEB64D71CC8D2D800DD94FE /* ViewController.swift in Sources */,
 				AEEB64D51CC8D2D800DD94FE /* AppDelegate.swift in Sources */,
 			);
@@ -489,6 +493,7 @@
 				AEEB64FB1CC8D2D800DD94FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEEB64FC1CC8D2D800DD94FE /* Build configuration list for PBXNativeTarget "simple-calcTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +502,7 @@
 				AEEB64FE1CC8D2D800DD94FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEEB64FF1CC8D2D800DD94FE /* Build configuration list for PBXNativeTarget "simple-calcUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +511,7 @@
 				AEEB65011CC8D2D800DD94FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

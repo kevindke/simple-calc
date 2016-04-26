@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     var total = Double()
     var findAvg = false
     var findFact = false
+    var history = String()
+    var historyArray = [String]()
     
     
     var currentOperation = String()
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
     @IBAction func btnNumberInput(sender: UIButton) {
         currentNumber = currentNumber * 10 + Double(sender.titleLabel!.text!)!
         lblResult.text = ("\(currentNumber)")
+        history = history + String(currentNumber)
     }
 
     @IBAction func btnClear(sender: UIButton) {
@@ -49,16 +52,14 @@ class ViewController: UIViewController {
         total = 0
         findAvg = false
         findFact = false
+        history = ""
     }
     
     @IBAction func btnOperation(sender: UIButton) {
         numbers.append(Double(currentNumber))
         print(numbers)
         
-        if sender.titleLabel!.text! == "Fact" {
-            findFact = true
-        }
-    
+        
         switch currentOperation {
             case "=":
                 result = currentNumber
@@ -84,6 +85,29 @@ class ViewController: UIViewController {
                 print("error")
         }
         
+        if sender.titleLabel!.text! == "Fact" {
+            findFact = true
+            history = history + "fact"
+        } else if sender.titleLabel!.text! == "Avg" {
+            history = history + "avg"
+        } else if sender.titleLabel!.text! == "Count" {
+            history = history + "count"
+        } else if sender.titleLabel!.text! == "/" {
+            history = history + "/"
+        } else if sender.titleLabel!.text! == "*" {
+            history = history + "*"
+        } else if sender.titleLabel!.text! == "-" {
+            history = history + "-"
+        } else if sender.titleLabel!.text! == "+" {
+            history = history + "+"
+        } else if sender.titleLabel!.text! == "%" {
+            history = history + "%"
+        } else if sender.titleLabel!.text! == "=" {
+            history = history + "=" + String(result)
+            historyArray.append(history)
+            history = ""
+        }
+        
         if findAvg == true {
             total = 0
             for index in 0 ..< numbers.count {
@@ -105,12 +129,35 @@ class ViewController: UIViewController {
         
         currentNumber = 0
         lblResult.text = ("\(result)")
+
+        print(historyArray)
         
         if(sender.titleLabel!.text == "=") {
             result = 0
         }
         
         currentOperation = sender.titleLabel!.text! as String!
+    }
+    
+    
+    @IBAction func showHistory(sender: UIButton) {
+        for i in 0..<historyArray.count {
+            history += (historyArray[i] + "\n")
+        }
+        print("this is the showHistory history")
+        print(history)
+        print("end")
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "showHistory") {
+            
+            let destViewController : ViewTwoController = segue.destinationViewController as! ViewTwoController;
+            print("hi, im here")
+            print(history)
+            destViewController.viewHistory = history
+        }
     }
 }
 
