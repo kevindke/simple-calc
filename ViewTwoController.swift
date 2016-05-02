@@ -14,14 +14,17 @@ class ViewTwoController: UIViewController {
 
     @IBOutlet weak var Label: UILabel!
     
-    var viewHistory = String()
+    var viewHistory = [String]()
+    var history = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print(viewHistory)
-        print("hi2")
-        Label.text = viewHistory
+        for i in 0..<viewHistory.count {
+            history += (viewHistory[i] + "\n")
+        }
+        print(history)
+        Label.text = history
         
     }
     

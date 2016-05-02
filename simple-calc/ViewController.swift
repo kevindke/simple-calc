@@ -52,7 +52,6 @@ class ViewController: UIViewController {
         total = 0
         findAvg = false
         findFact = false
-        history = ""
     }
     
     @IBAction func btnOperation(sender: UIButton) {
@@ -104,8 +103,12 @@ class ViewController: UIViewController {
             history = history + "%"
         } else if sender.titleLabel!.text! == "=" {
             history = history + "=" + String(result)
+            print(history)
             historyArray.append(history)
+            print(historyArray)
             history = ""
+            print(history)
+            
         }
         
         if findAvg == true {
@@ -129,8 +132,6 @@ class ViewController: UIViewController {
         
         currentNumber = 0
         lblResult.text = ("\(result)")
-
-        print(historyArray)
         
         if(sender.titleLabel!.text == "=") {
             result = 0
@@ -144,9 +145,6 @@ class ViewController: UIViewController {
         for i in 0..<historyArray.count {
             history += (historyArray[i] + "\n")
         }
-        print("this is the showHistory history")
-        print(history)
-        print("end")
     }
     
     
@@ -156,7 +154,8 @@ class ViewController: UIViewController {
             let destViewController : ViewTwoController = segue.destinationViewController as! ViewTwoController;
             print("hi, im here")
             print(history)
-            destViewController.viewHistory = history
+            print(historyArray)
+            destViewController.viewHistory = historyArray
         }
     }
 }
